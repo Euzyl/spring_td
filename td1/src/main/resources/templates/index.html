@@ -1,0 +1,12 @@
+{{> include/header }}
+<h1><i class="transgender flag"></i>Gestion d'items<i class="pride flag"></i></h1>
+<a class="ui button" href="/new">Ajouter un item...</a>
+{{#msg}}
+        {{>include/message}}
+{{/msg}}
+<ul>
+  {{#items}}
+    <li>{{nom}}</li>
+  {{/items}}
+</ul>
+{{> include/footer }}
