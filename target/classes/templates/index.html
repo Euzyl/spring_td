@@ -1,12 +1,23 @@
 {{> include/header }}
 <h1><i class="transgender flag"></i>Gestion d'items<i class="pride flag"></i></h1>
-<a class="ui button" href="/new">Ajouter ou supprimer un item</a>
+<a class="ui button" href="/new">Ajouter ou modifier ou supprimer un item</a>
 {{#msg}}
         {{>include/message}}
 {{/msg}}
 <ul>
-  {{#items}}
-    <li>{{nom}}</li>
-  {{/items}}
+{{#items}}
+<li><a href="/update/{{nom}}">{{nom}}</a>
+    <div class="ui rating" data-max-rating="{{evaluation}}"></div>
+    <a class="ui circular mini icon button" href="/inc/{{nom}}">
+        <i class="ui plus icon"></i>
+    </a>
+    <a class="ui circular mini icon button" href="/dec/{{nom}}">
+        <i class="ui minus icon"></i>
+    </a>
+</li>
+{{/items}}
 </ul>
 {{> include/footer }}
+<script>
+    $(".ui.rating").rating();
+</script>
