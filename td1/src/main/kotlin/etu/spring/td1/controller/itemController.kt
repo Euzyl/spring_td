@@ -44,4 +44,22 @@ class itemController {
         }
         return RedirectView("/")
     }
+
+    @RequestMapping("/delete")
+    fun deleteAction(
+            @ModelAttribute("nom") nom:String,
+            @SessionAttribute("items") items:HashSet<Item>,
+            attrs: RedirectAttributes): RedirectView {
+        if(items.remove(Item(nom))){
+            attrs.addFlashAttribute("msg",
+                UiMessage.message("Suppression d'item", "$nom a été supprimé avec succès"))
+        }else{
+            attrs.addFlashAttribute("msg",
+                UiMessage.message("Suppression d'item", "$nom n'existe pas",
+                    "warning","warning circle"))
+        }
+        return RedirectView("/")
+    }
+
+
 }
