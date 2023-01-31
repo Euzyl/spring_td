@@ -1,23 +1,39 @@
 {{> include/header }}
 <h1><i class="transgender flag"></i>Gestion d'items<i class="pride flag"></i></h1>
-<a class="ui button" href="/new">Ajouter ou modifier ou supprimer un item</a>
+<!--<a class="ui button" href="/new">Ajouter ou modifier ou supprimer un item</a>-->
 {{#msg}}
         {{>include/message}}
 {{/msg}}
-<ul>
-{{#items}}
-<li><a href="/update/{{nom}}">{{nom}}</a>
-    <div class="ui rating" data-max-rating="{{evaluation}}"></div>
-    <a class="ui circular mini icon button" href="/inc/{{nom}}">
-        <i class="ui plus icon"></i>
-    </a>
-    <a class="ui circular mini icon button" href="/dec/{{nom}}">
-        <i class="ui minus icon"></i>
-    </a>
-</li>
-{{/items}}
-</ul>
+
+<div class="ui top attached tabular menu">
+    {{#categories}}
+        <a class="item" data-tab="{{label}}">{{label}}</a>
+    {{/categories}}
+</div>
+
+{{#categories}}
+<div class="ui bottom attached tab segment" data-tab="{{label}}">
+    {{#insertable}}
+        <a class="ui orange button" href="/new/{{label}}">Ajouter un item...</a>
+    {{/insertable}}
+    <ul>
+        {{#items}}
+            <li><a href="/update/{{label}}/{{nom}}">{{nom}}</a>
+            <div class="ui rating" data-max-rating="{{evaluation}}"></div>
+            <a class="ui circular mini icon button" href="/inc/{{label}}/{{nom}}">
+                <i class="ui plus icon"></i>
+            </a>
+            <a class="ui circular mini icon button" href="/dec/{{label}}/{{nom}}">
+                <i class="ui minus icon"></i>
+            </a>
+            </li>
+        {{/items}}
+    </ul>
+</div>
+{{/categories}}
+
 {{> include/footer }}
 <script>
     $(".ui.rating").rating();
+    $(".menu .item").tab({autoTabActivation:{{#category}}'{{.}}'{{/category}}{{^category}}true{{/category}} });
 </script>

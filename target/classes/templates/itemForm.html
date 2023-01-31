@@ -1,15 +1,14 @@
 {{> include/header }}
 <h1>Gestion d'items<em data-emoji=":100:" class="small"></em></h1>
-
-{{#items}}
-    <form class="ui form" method="post" action="/addNew">
+<h2>{{category}}</h2>
+{{#item}}
+    <form class="ui form" method="post" action="{{url}}">
         <input type="hidden" name="id" value="{{nom}}">
-        <input class="ui input" type="text" value="{{nom}}" name="nom" placeholder="Nom de l'item">
+        <input class="ui input" type="text" value="{{nom}}" name="nom" placeholder="Nom de l'élément" required>
         <hr>
         <button class="ui positive button" type="submit">Valider</button>
     </form>
-{{/items}}
-
+{{/item}}
 
 <!--
 <form method="post" action="/addNew">
