@@ -1,0 +1,31 @@
+{{> include/header }}
+
+<h1><i class="envelope icon"></i>Messagerie</h1>
+<h2>Organisations</h2>
+
+<button><a class="ui olivie button" href="/orgas/new"><i class="ui plus icon"></i>Ajouter une organisation</a></button>
+
+<!--for each-->
+<ul>
+{{#orgas}}
+    <li>{{name}} - {{domain}}
+    <h5>Utilisateurs</h5>
+        <div class="ui relaxed divided list">
+            {{#users}}
+                <div class="item">
+                    <i class="large github middle aligned icon"></i>
+                    <div class="content">
+                        <a class="header">{{firstname}} {{lastname}}</a>
+                        <div class="description">{{email}}</div>
+                    </div>
+                </div>
+            {{/users}}
+        </div>
+    </li>
+
+
+
+</ul>
+{{/orgas}}
+
+{{> include/footer }}

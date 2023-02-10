@@ -5,17 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d4b9f8d-6d30-487e-a116-bea600a8370c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_bowergithub_fomantic_fomantic_ui_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_bowergithub_jquery_jquery_dist_3_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_3_6_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/config/WebConfig.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/controllers/IndexController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/orgas/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/orgas/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/controllers/OrgasController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/controllers/OrgasController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/Group.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/Group.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/Organization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/Organization.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/GrpRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/GrpRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/OrgaRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/OrgaRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/UsrRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/UsrRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/td2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/td2.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -50,11 +66,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/louisecoueffin/Desktop/BUT_info/S4/web/spring_td",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+    "last_opened_file_path": "/Users/louisecoueffin/Desktop/BUT_info/S4/web/spring_td/src/main/resources/templates/orgas",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/orgas" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/templates/include" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
