@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d4b9f8d-6d30-487e-a116-bea600a8370c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/controllers/OrgasController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/GrpRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/OrgaRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/UsrRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/Group.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/Group.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/Organization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/Organization.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/models/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/controllers/OrgasController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/controllers/OrgasController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/OrgaRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/etu/spring/td2/repositories/OrgaRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="HTML File" />
         <option value="Kotlin Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -60,6 +56,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/include" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
   </component>

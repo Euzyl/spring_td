@@ -1,0 +1,16 @@
+{{> include/header }}
+
+<h1>"<i class="envelope icon"></i>">SpringBoot TD n°2</h1>
+<p>Application de messagerie</p>
+
+<button><a href="orgas/new">Ajouter une organisation</a></button>
+
+
+<ul>
+    {{#organization}}
+        <li><a href="orgas/display/{id}">{{id}}</a> </li>
+    {{/organization}}
+</ul>
+
+
+{{> include/footer }}

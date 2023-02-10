@@ -17,7 +17,7 @@ class OrgasController {
     @ResponseBody
     fun newOrga(@ModelAttribute orga: Organization?): String {
         repo.saveAndFlush(orga)
-        return orga + "ajoutée."
+        return "${orga} ajoutée."
     }
 
     @PostMapping("edit/{id}")
@@ -32,7 +32,7 @@ class OrgasController {
 
     @RequestMapping("delete/{id}")
     fun delOrga(@PathVariable id: Int){
-        
+
     }
 
 }
