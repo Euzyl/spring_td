@@ -32,8 +32,9 @@ open class User {
     @JoinColumn(name = "idOrganization", nullable = false)
     lateinit var  organization: Organization
 
-    /*
-    @ManyToMany(mappedBy="users")
-    private lateinit var groupes:Set<Group>
-*/
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    //@JoinTable(name="user_groups")
+    open val users = mutableSetOf<User>()
+
 }

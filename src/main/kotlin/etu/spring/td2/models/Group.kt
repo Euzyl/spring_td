@@ -16,20 +16,12 @@ open class Group {
     @Column(length = 20)
     open var aliases :String? = null
 
-    // organization, users
-
-    //user ->many to many
-    //organization ->many to one
-/*
     @ManyToOne
     @JoinColumn(name="idOrganization", nullable=false)
-    private lateinit var organisation:Organization
+    lateinit var organisation:Organization
 
-    @ManyToOne
-    private lateinit var organization: Organization
-    @ManyToMany
-    @JoinTable(name = "user_group")
-    private lateinit var users:Set<User>
-*/
+    @ManyToMany(mappedBy = "groups", fetch = FetchType.LAZY)
+    open val users= mutableSetOf<User>()
+
 
 }

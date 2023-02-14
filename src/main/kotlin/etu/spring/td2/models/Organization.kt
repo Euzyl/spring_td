@@ -31,11 +31,13 @@ open class Organization() {
     open val users = mutableSetOf<User>()
 
 
-    /*
+
     @OneToMany
-    private lateinit var groupes:Set<Group>
-*/
+    open val groups = mutableSetOf<Group>()
 
-
-
+    fun addGroup(group:Group){
+        if(groups.add(group)){
+            group.organisation=this
+        }
+    }
 }
