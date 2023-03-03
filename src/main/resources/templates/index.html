@@ -1,0 +1,73 @@
+{{> main/header}}
+
+<h1>Propriétaires</h1> <span class="ui blue pointing label count-master"> {{masters.size}} </span>
+
+<h2>Ajout rapide de propriétaire</h2>
+
+<form method="post" action="/master/add" class="ui form">
+    {{#master}}
+        {{#id}}
+            <input type="hidden" name="id" value="{{.}}">
+        {{/id}}
+        <div class="ui input">
+            <input type="text" name="firstname" value="{{firstname}}" placeholder="firstname" class="ui input" required>
+        </div>
+        <div class="field">
+            <input type="text" name="lastname" value="{{lastname}}" placeholder="lastname" class="ui input" required>
+        </div>
+    {{/master}}
+    <button class="ui positive button">+</button>
+</form>
+
+
+<table class="ui table">
+    <thead>
+    <tr>
+        <th>Propriétaire</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{{#masters}}
+    <tr>
+        <td>{{firstname}} {{lastname}} <</td>
+        <td>
+            <div class="ui input">
+                <input type="text" placeholder="Nom du chien">
+            </div>
+        </td>
+    </tr>
+{{/masters}}
+    </tbody>
+</table>
+
+
+<h1>Chiens à l'adoption</h1>
+<table class="ui table">
+    <thead>
+    <tr>
+        <th>Chiens</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+<tbody>
+{{#dogs}}
+    <tr>
+        <td>{{name}}</td>
+
+        <td>
+            chiengue
+        </td>
+    </tr>
+{{/dogs}}
+</tbody>
+</table>
+
+<div class="ui buttons">
+    <button class="ui button">un</button>
+    <div class="or" data-text="ou"></div>
+    <button class="ui positive button">deux</button>
+</div>
+
+
+{{> main/footer}}
