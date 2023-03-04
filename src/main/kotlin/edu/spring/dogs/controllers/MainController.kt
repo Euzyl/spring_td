@@ -17,16 +17,22 @@ class MainController {
 
     @RequestMapping(path = ["/","","index"])
     fun indexAction(model:ModelMap):String {
+       /*
         model["masters"] = masterRepository.findAll()
+        model["master"] = Master()
+       */
+        model.addAttribute("masters", masterRepository.findAll())
+        model.addAttribute("master", Master(firstname = "", lastname = ""))
         return "index"
     }
 
     @PostMapping("/master/add")
-    fun addMasterAction(
-        @ModelAttribute master:Master
-    ):RedirectView{
+    fun addMasterAction(@ModelAttribute master:Master): RedirectView {
+        masterRepository.save(master) // enregistrement du nouveau maître
         return RedirectView("/")
     }
+
+
 
     @PostMapping("/master/{id}/dog")
     fun dogAction(

@@ -12,7 +12,7 @@
         <div class="ui input">
             <input type="text" name="firstname" value="{{firstname}}" placeholder="firstname" class="ui input" required>
         </div>
-        <div class="field">
+        <div class="ui input">
             <input type="text" name="lastname" value="{{lastname}}" placeholder="lastname" class="ui input" required>
         </div>
     {{/master}}
@@ -56,7 +56,14 @@
         <td>{{name}}</td>
 
         <td>
-            chiengue
+            <div class="ui input">
+                <input type="text" placeholder="Nom du chien">
+            </div>
+            <div class="ui buttons">
+            <button class="ui negative button">Abandonner</button>
+            <div class="or" data-text="ou"></div>
+            <button class="ui positive button">Acquérir</button>
+            </div>
         </td>
     </tr>
 {{/dogs}}
@@ -64,9 +71,10 @@
 </table>
 
 <div class="ui buttons">
-    <button class="ui button">un</button>
+
+    <button class="ui negative button">Abandonner</button>
     <div class="or" data-text="ou"></div>
-    <button class="ui positive button">deux</button>
+    <button class="ui positive button">Acquérir</button>
 </div>
 
 

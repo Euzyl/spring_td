@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface MasterRepository: CrudRepository<Master, Int> {
+    public fun findByDogsName(name: String) : List<Master>
 }

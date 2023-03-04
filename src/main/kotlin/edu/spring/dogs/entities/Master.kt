@@ -14,10 +14,10 @@ open class Master() {
     @Column(length = 30)
     open var lastname:String?=null
 
-    constructor(fname:String, lname:String):
+    constructor(firstname:String, lastname:String):
             this(){
-                this.firstname=fname
-                this.lastname=lname
+                this.firstname=firstname
+                this.lastname=lastname
             }
 
 
@@ -38,6 +38,6 @@ open class Master() {
 
     @PreRemove
     fun preRemove(){
-
+//dogs.forEach { it.master = null }
     }
 }
