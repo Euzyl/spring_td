@@ -1,5 +1,7 @@
 package edu.spring.dogs
 
+import edu.spring.dogs.entities.Dog
+import edu.spring.dogs.entities.Master
 import edu.spring.dogs.repositories.DogRepository
 import edu.spring.dogs.repositories.MasterRepository
 import org.assertj.core.api.Assertions
@@ -15,7 +17,7 @@ class MasterRepositoryTest {
     @Autowired
     lateinit var dogRepository: DogRepository
 
-    private fun createMasterWithDogs():Master{
+    private fun createMasterWithDogs(): Master {
         var master=Master("John","DOE")
         master.id=1000
         master.addDog(Dog("Rex"))

@@ -1,9 +1,11 @@
 {{> main/header}}
 
-<h1>Propriétaires</h1> <span class="ui blue pointing label count-master"> {{masters.size}} </span>
+<h1>Propriétaires</h1> <span class="ui blue pointing label .count-master"> {{masters.size}} </span>
 
-<h2>Ajout rapide de propriétaire</h2>
-
+<div class="ui attached info message">
+    <i class="circle info icon"></i>
+    <p>Ajout rapide de propriétaire</p>
+</div>
 <form method="post" action="/master/add" class="ui form">
     {{#master}}
         {{#id}}
@@ -28,6 +30,23 @@
     </tr>
     </thead>
     <tbody>
+        <tr>
+            <td>
+                {{#isMasterEmpty}}
+                    <div class="ui warning message">
+                        <i class="circle warning icon"></i>
+                        <div class="header">
+                            Pas de maître
+                        </div>
+                        Il n'y a pas de maître dans la base de données.
+                    </div>
+                {{/isMasterEmpty}}
+            </td>
+
+        </tr>
+
+
+
     {{#masters}}
         <tr>
             <td>{{firstname}} {{lastname}} </td>
@@ -53,7 +72,7 @@
 
 
                 <form action="/master/{{id}}/delete" class="ui form" method="post" >
-                    <button class="ui black button" >Paix à son âme </button>
+                    <button class="ui black button .delete-master" >Paix à son âme </button>
                 </form>
 
             </td>
@@ -72,18 +91,41 @@
     </tr>
     </thead>
     <tbody>
+
+    <tr>
+        <td>
+            {{#isDogEmpty}}
+                <div class="ui positive message">
+                    <i class="circle info icon"></i>
+                    <div class="header">
+                        Pas de chien
+                    </div>
+                    Il n'y a pas de chien à l'adoption dans la base de données.
+                </div>
+            {{/isDogEmpty}}
+        </td>
+
+    </tr>
+
     {{#dogs}}
         <tr>
             <td>{{name}}</td>
 
             <td>
-                <form action="/master/{{id}}/delete" class="ui form" method="post" >
+                <form action="/dog/{{id}}/action" class="ui form" method="post" >
+                    <div class="ui selection dropdown">
+                        <i class="dropdown icon"></i>
+                        <div class="scrollhint menu">
+                            {{#masters}}
+                                <div class="item" name="selection" value="{{id}}">{{firstname}} {{lastname}}</div>
+                            {{/masters}}
+                        </div>
+                    </div>
+
                     <div class="ui icon buttons">
                         <button class="ui button" name="dog-action" value="adopt"><i class="plus icon"></i></button>
-
                     </div>
                         <button class="negative ui button" name="dog-action" value="remove"><i class="sign out alternate icon"></i></button>
-
                 </form>
             </td>
         </tr>

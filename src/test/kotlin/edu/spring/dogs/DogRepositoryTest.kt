@@ -64,5 +64,6 @@ class DogRepositoryTest {
         assert(dog!=null)
         assert(dog!!.name=="Rex")
         assert(dog.master==master)
+
     }
 }

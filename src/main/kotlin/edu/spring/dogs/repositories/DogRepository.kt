@@ -1,11 +1,12 @@
 package edu.spring.dogs.repositories
 
 import edu.spring.dogs.entities.Dog
+import edu.spring.dogs.entities.Master
 import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
 interface DogRepository: CrudRepository<Dog,Int> {
-    //recherche par type (type:Type)
-
+    public fun findByMasterIsNull() : List<Dog>
+    public fun findByNameAndMasterId(name:String, id:Int) : Dog
 }

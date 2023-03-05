@@ -9,15 +9,12 @@ open class Dog() {
     open var id:Int = 0
 
     @Column(length = 30)
-    open var name:String?=null
+    open lateinit var name:String
 
     constructor(name:String):
             this(){
                 this.name=name
             }
-
-
-
 
     @ManyToOne
     open var master: Master?=null

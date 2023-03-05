@@ -24,6 +24,16 @@ class MainController {
         model.addAttribute("masters", masterRepository.findAll())
         model.addAttribute("dogs", dogRepository.findAll())
         model.addAttribute("master", Master(firstname = "", lastname = ""))
+
+        val masters = masterRepository.findAll()
+        if (masters.count() == 0) {
+            model.addAttribute("isMasterEmpty", true)
+        }
+
+        val dogs = dogRepository.findAll()
+        if(dogs.count()==0){
+            model.addAttribute("isDogEmpty", true)
+        }
         return "index"
     }
 
@@ -35,7 +45,7 @@ class MainController {
 
 
     @PostMapping("/master/{id}/dog")
-    fun dogAction(
+    fun masterAction(
         @PathVariable id: Int,
         @ModelAttribute dog: Dog,
         @RequestParam("dog-action") action: String
@@ -52,6 +62,28 @@ class MainController {
         }
         return RedirectView("/")
     }
+
+    @PostMapping("/dog/{id}/action")
+    fun dogAction(
+        @PathVariable id:Int,
+        @RequestParam("selection") sel : Int,
+        @RequestParam("dog-action") action:String
+    ):RedirectView{
+        if(action == "remove"){
+            val del = dogRepository.findById(id)
+            if(del.isPresent){
+                dogRepository.delete(del.get())
+            }
+        }else if(action == "adopt"){
+            val dog = dogRepository.findById(id)
+            val master = masterRepository.findById(sel).orElse(null)
+            dog.get().master = master
+        }
+        return RedirectView("/")
+    }
+
+
+
 
 
     @PostMapping("/master/{id}/delete")
