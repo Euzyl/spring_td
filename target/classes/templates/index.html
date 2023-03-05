@@ -28,16 +28,37 @@
     </tr>
     </thead>
     <tbody>
-{{#masters}}
-    <tr>
-        <td>{{firstname}} {{lastname}} <</td>
-        <td>
-            <div class="ui input">
-                <input type="text" placeholder="Nom du chien">
-            </div>
-        </td>
-    </tr>
-{{/masters}}
+    {{#masters}}
+        <tr>
+            <td>{{firstname}} {{lastname}} </td>
+            <td>
+                <form action="/master/{{id}}/dog" object="${dog}" method="post">
+
+                    <div class="ui input">
+                        <input type="text" name="name" placeholder="Nom du chien" >
+                    </div>
+
+                    <div class="ui buttons">
+
+                        <button class="ui negative button" name="dog-action" value="giveup">Abandonner</button>
+
+                        <div class="or" data-text="ou"></div>
+
+                        <button class="ui positive button"  name="dog-action" value="add">Acquérir</button>
+
+
+                    </div>
+                </form>
+
+
+
+                <form action="/master/{{id}}/delete" class="ui form" method="post" >
+                    <button class="ui black button" >Paix à son âme </button>
+                </form>
+
+            </td>
+        </tr>
+    {{/masters}}
     </tbody>
 </table>
 
@@ -50,24 +71,18 @@
         <th>Actions</th>
     </tr>
     </thead>
-<tbody>
-{{#dogs}}
-    <tr>
-        <td>{{name}}</td>
+    <tbody>
+    {{#dogs}}
+        <tr>
+            <td>{{name}}</td>
 
-        <td>
-            <div class="ui input">
-                <input type="text" placeholder="Nom du chien">
-            </div>
-            <div class="ui buttons">
-            <button class="ui negative button">Abandonner</button>
-            <div class="or" data-text="ou"></div>
-            <button class="ui positive button">Acquérir</button>
-            </div>
-        </td>
-    </tr>
-{{/dogs}}
-</tbody>
+            <td>
+
+                <button class="negative ui button">Retirer</button>
+            </td>
+        </tr>
+    {{/dogs}}
+    </tbody>
 </table>
 
 <div class="ui buttons">

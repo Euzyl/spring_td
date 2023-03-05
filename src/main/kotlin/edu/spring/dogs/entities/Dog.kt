@@ -6,7 +6,7 @@ import jakarta.persistence.*
 open class Dog() {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    open var idDog:Int = 0
+    open var id:Int = 0
 
     @Column(length = 30)
     open var name:String?=null
@@ -16,12 +16,11 @@ open class Dog() {
                 this.name=name
             }
 
-    @OneToOne
-    @JoinColumn(name="idMaster", nullable = true)
+
+    @ManyToOne
     open var master: Master?=null
 
     @OneToMany
-    @JoinColumn(name="idToy", nullable = true)
     open val toys = mutableSetOf<Toy>()
 
 }

@@ -6,7 +6,7 @@ import jakarta.persistence.*
 open class Master() {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    open var idMaster:Int = 0
+    open var id:Int? = 0
 
     @Column(length = 30)
     open var firstname:String?=null
@@ -38,6 +38,6 @@ open class Master() {
 
     @PreRemove
     fun preRemove(){
-//dogs.forEach { it.master = null }
+        dogs.forEach { it.master = null }
     }
 }

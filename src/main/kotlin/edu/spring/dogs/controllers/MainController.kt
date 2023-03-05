@@ -2,6 +2,7 @@ package edu.spring.dogs.controllers
 
 import edu.spring.dogs.entities.Dog
 import edu.spring.dogs.entities.Master
+import edu.spring.dogs.repositories.DogRepository
 import edu.spring.dogs.repositories.MasterRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -15,12 +16,11 @@ class MainController {
     @Autowired
     lateinit var masterRepository: MasterRepository
 
+    @Autowired
+    lateinit var dogRepository:DogRepository
+
     @RequestMapping(path = ["/","","index"])
     fun indexAction(model:ModelMap):String {
-       /*
-        model["masters"] = masterRepository.findAll()
-        model["master"] = Master()
-       */
         model.addAttribute("masters", masterRepository.findAll())
         model.addAttribute("master", Master(firstname = "", lastname = ""))
         return "index"
@@ -28,21 +28,32 @@ class MainController {
 
     @PostMapping("/master/add")
     fun addMasterAction(@ModelAttribute master:Master): RedirectView {
-        masterRepository.save(master) // enregistrement du nouveau maître
+        masterRepository.save(master)
         return RedirectView("/")
     }
-
 
 
     @PostMapping("/master/{id}/dog")
     fun dogAction(
-        @ModelAttribute dog: Dog
-    ):RedirectView{
-
+        @PathVariable id: Int,
+        @ModelAttribute dog: Dog,
+        @RequestParam("dog-action") action: String
+    ): RedirectView {
+        val master = masterRepository.findById(id).orElse(null)
+        if (action == "add") {
+            if (master != null) {
+                dog.master = master
+                dogRepository.save(dog)
+            }
+        }else if (action == "giveup") {
+            dog.master = null
+            dogRepository.save(dog)
+        }
         return RedirectView("/")
     }
 
-    @GetMapping("/master/{id}/delete")
+    
+    @PostMapping("/master/{id}/delete")
     fun deleteMaster(@PathVariable id:Int):RedirectView{
         val del=masterRepository.findById(id)
         if(del.isPresent) {
@@ -50,13 +61,5 @@ class MainController {
         }
         return RedirectView("/")
     }
-
-
-
-
-
-
-
-
 
 }
