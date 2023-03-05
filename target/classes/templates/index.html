@@ -1,6 +1,6 @@
 {{> main/header}}
 
-<h1>Propriétaires</h1> <span class="ui blue pointing label .count-master"> {{masters.size}} </span>
+<h1>Propriétaires</h1> <span class="ui blue pointing label count-masters"> {{masters.size}} </span>
 
 <div class="ui attached info message">
     <i class="circle info icon"></i>
@@ -45,36 +45,32 @@
 
         </tr>
 
-
-
     {{#masters}}
         <tr>
-            <td>{{firstname}} {{lastname}} </td>
+            <td>{{firstname}} {{lastname}}
+                <div class="ui label count-master-dogs">
+                    <i class="dog icon"></i>{{dogs.size}}
+                </div>
+            </td>
             <td>
                 <form action="/master/{{id}}/dog" object="${dog}" method="post">
 
                     <div class="ui input">
-                        <input type="text" name="name" placeholder="Nom du chien" >
+                        <input type="text" name="name" placeholder="Nom du chien" required="true">
                     </div>
 
                     <div class="ui buttons">
 
-                        <button class="ui negative button" name="dog-action" value="giveup">Abandonner</button>
-
+                        <button class="ui negative button" name="dog-action" value="give-up">Abandonner</button>
                         <div class="or" data-text="ou"></div>
-
                         <button class="ui positive button"  name="dog-action" value="add">Acquérir</button>
-
 
                     </div>
                 </form>
 
-
-
                 <form action="/master/{{id}}/delete" class="ui form" method="post" >
-                    <button class="ui black button .delete-master" >Paix à son âme </button>
+                    <button class="ui black button delete-master" >Paix à son âme </button>
                 </form>
-
             </td>
         </tr>
     {{/masters}}
@@ -82,7 +78,7 @@
 </table>
 
 
-<h1>Chiens à l'adoption</h1> <span class="ui red pointing label count-master"> {{dogs.size}} </span>
+<h1>Chiens à l'adoption</h1> <span class="ui red pointing label count-dogs"> {{dogs.size}} </span>
 <table class="ui table">
     <thead>
     <tr>
@@ -106,30 +102,31 @@
         </td>
 
     </tr>
-
-    {{#dogs}}
+<!--je n'affiche que les chiens à adopter (qui n'ont pas de maitre)-->
+    {{#dogsAdopt}}
         <tr>
             <td>{{name}}</td>
 
             <td>
                 <form action="/dog/{{id}}/action" class="ui form" method="post" >
-                    <div class="ui selection dropdown">
-                        <i class="dropdown icon"></i>
-                        <div class="scrollhint menu">
-                            {{#masters}}
-                                <div class="item" name="selection" value="{{id}}">{{firstname}} {{lastname}}</div>
-                            {{/masters}}
-                        </div>
-                    </div>
 
-                    <div class="ui icon buttons">
-                        <button class="ui button" name="dog-action" value="adopt"><i class="plus icon"></i></button>
-                    </div>
+                    <select name="selection" class="ui search dropdown"
+                            {{^masters}}disabled{{/masters}}>
+                        {{#masters}}
+                            <option class="item" value="{{id}}">{{firstname}} {{lastname}}</option>
+                        {{/masters}}
+                        {{^masters}}
+                            <option class="item" value="0" selected>Pas d'adoptant</option>
+                        {{/masters}}
+                    </select>
+                    <input type="hidden" name="selection" value="0" {{#masters}}disabled{{/masters}} />
+
+                        <button class="ui icon button" name="dog-action" value="adopt"><i class="plus icon"></i></button>
                         <button class="negative ui button" name="dog-action" value="remove"><i class="sign out alternate icon"></i></button>
                 </form>
             </td>
         </tr>
-    {{/dogs}}
+    {{/dogsAdopt}}
     </tbody>
 </table>
 

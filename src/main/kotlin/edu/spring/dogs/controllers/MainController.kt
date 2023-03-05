@@ -24,6 +24,7 @@ class MainController {
         model.addAttribute("masters", masterRepository.findAll())
         model.addAttribute("dogs", dogRepository.findAll())
         model.addAttribute("master", Master(firstname = "", lastname = ""))
+        model.addAttribute("dogsAdopt", dogRepository.findByMasterIsNull())
 
         val masters = masterRepository.findAll()
         if (masters.count() == 0) {
@@ -31,7 +32,8 @@ class MainController {
         }
 
         val dogs = dogRepository.findAll()
-        if(dogs.count()==0){
+        val dogsSPA = dogRepository.findByMasterIsNull()
+        if(dogsSPA.count()==0){
             model.addAttribute("isDogEmpty", true)
         }
         return "index"
@@ -43,7 +45,6 @@ class MainController {
         return RedirectView("/")
     }
 
-
     @PostMapping("/master/{id}/dog")
     fun masterAction(
         @PathVariable id: Int,
@@ -51,13 +52,18 @@ class MainController {
         @RequestParam("dog-action") action: String
     ): RedirectView {
         val master = masterRepository.findById(id).orElse(null)
+
+
         if (action == "add") {
             if (master != null) {
                 dog.master = master
                 dogRepository.save(dog)
             }
-        }else if (action == "giveup") {
-            dog.master = null
+        }else if (action == "give-up") {
+            //val doggo = dogRepository.findByNameAndMasterId(dog.name, id) //renvoie null
+
+            master.giveUpDog(dog)
+            //dog.master = null
             dogRepository.save(dog)
         }
         return RedirectView("/")
@@ -69,29 +75,26 @@ class MainController {
         @RequestParam("selection") sel : Int,
         @RequestParam("dog-action") action:String
     ):RedirectView{
+        val dog = dogRepository.findById(id).orElse(null)
+        val master = masterRepository.findById(sel).orElse(null)
+        if (master != null) {
+            masterRepository.save(master)
+        }
         if(action == "remove"){
-            val del = dogRepository.findById(id)
-            if(del.isPresent){
-                dogRepository.delete(del.get())
-            }
+            dogRepository.delete(dog)
         }else if(action == "adopt"){
-            val dog = dogRepository.findById(id)
-            val master = masterRepository.findById(sel).orElse(null)
-            dog.get().master = master
+            dog.master = master
+            master.addDog(dog)
+            dogRepository.save(dog)
         }
         return RedirectView("/")
     }
 
-
-
-
-
     @PostMapping("/master/{id}/delete")
     fun deleteMaster(@PathVariable id:Int):RedirectView{
-        val del=masterRepository.findById(id)
-        if(del.isPresent) {
-            masterRepository.delete(del.get())
-        }
+        val master=masterRepository.findById(id).orElse(null)
+        master.preRemove()
+        masterRepository.delete(master)
         return RedirectView("/")
     }
 
