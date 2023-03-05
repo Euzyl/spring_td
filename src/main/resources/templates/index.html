@@ -63,7 +63,7 @@
 </table>
 
 
-<h1>Chiens à l'adoption</h1>
+<h1>Chiens à l'adoption</h1> <span class="ui red pointing label count-master"> {{dogs.size}} </span>
 <table class="ui table">
     <thead>
     <tr>
@@ -77,20 +77,18 @@
             <td>{{name}}</td>
 
             <td>
+                <form action="/master/{{id}}/delete" class="ui form" method="post" >
+                    <div class="ui icon buttons">
+                        <button class="ui button" name="dog-action" value="adopt"><i class="plus icon"></i></button>
 
-                <button class="negative ui button">Retirer</button>
+                    </div>
+                        <button class="negative ui button" name="dog-action" value="remove"><i class="sign out alternate icon"></i></button>
+
+                </form>
             </td>
         </tr>
     {{/dogs}}
     </tbody>
 </table>
-
-<div class="ui buttons">
-
-    <button class="ui negative button">Abandonner</button>
-    <div class="or" data-text="ou"></div>
-    <button class="ui positive button">Acquérir</button>
-</div>
-
 
 {{> main/footer}}

@@ -17,6 +17,8 @@ open class Dog() {
             }
 
 
+
+
     @ManyToOne
     open var master: Master?=null
 

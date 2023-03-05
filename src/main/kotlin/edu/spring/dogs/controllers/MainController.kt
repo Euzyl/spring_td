@@ -22,6 +22,7 @@ class MainController {
     @RequestMapping(path = ["/","","index"])
     fun indexAction(model:ModelMap):String {
         model.addAttribute("masters", masterRepository.findAll())
+        model.addAttribute("dogs", dogRepository.findAll())
         model.addAttribute("master", Master(firstname = "", lastname = ""))
         return "index"
     }
@@ -52,7 +53,7 @@ class MainController {
         return RedirectView("/")
     }
 
-    
+
     @PostMapping("/master/{id}/delete")
     fun deleteMaster(@PathVariable id:Int):RedirectView{
         val del=masterRepository.findById(id)
