@@ -1,0 +1,21 @@
+{{> /main/header}}
+
+<h2 class="ui header">Propriétaires<span class="ui blue left pointing label">{!masters.length}</span></h2>
+<ul>
+    <li v-for="master in masters">
+        {!master.firstname!} {!master.lastname!}
+        <i class="ui remove icon" @click="removeMaster(master)"></i>
+    </li>
+</ul>
+{{>/main/footer}}
+{{{vue}}}
+
+<form class="ui form">
+    <div>
+        <div>
+            <div>
+                <i></i>
+            </div>
+        </div>
+    </div>
+</form>
