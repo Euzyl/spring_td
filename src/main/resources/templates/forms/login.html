@@ -1,0 +1,37 @@
+{{> /main/header }}
+
+<div class="ui middle grid">
+    <div class="column">
+        <h2 class="ui grey inverted attached segment">
+            <img src="assets/dog.jpg" class="mini image">
+            <div  class="content">
+                Connexion à Messagerie app
+            </div>
+        </h2>
+    </div>
+</div>
+
+<form method="post" action="./login">
+    <div class="ui form">
+        <div class="field">
+            <div class="ui left icon input">
+                <input type="text" name="username" placeholder="E-mail address or username">
+                <i class="user icon"></i>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui left icon input">
+                <input type="password" name="password" placeholder="Password">
+                <i class="lock icon"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <button class="ui black button" type="submit">
+        Login
+    </button>
+
+</form>
+
+{{> /main/footer }}

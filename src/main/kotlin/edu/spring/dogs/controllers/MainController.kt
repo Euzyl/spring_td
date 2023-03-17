@@ -5,6 +5,7 @@ import edu.spring.dogs.entities.Master
 import edu.spring.dogs.repositories.DogRepository
 import edu.spring.dogs.repositories.MasterRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.core.Authentication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.web.bind.annotation.GetMapping
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestAttribute
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
+import java.security.Principal
 
 @Controller
 class MainController {
@@ -24,10 +26,11 @@ class MainController {
     lateinit var dogRepository: DogRepository
 
     @RequestMapping("/")
-    fun index(model:ModelMap): String {
+    fun index(model:ModelMap, auth:Authentication): String {
         val masters=masterRepository.findAll()
         model["masters"]= masters
         model["hasMasters"]= masters.count()>0
+        model["user"]= auth
         model["dogs"]= dogRepository.findByMasterIsNull()
         return "index"
     }
