@@ -23,8 +23,8 @@ open class Dog() {
 	open lateinit var name: String
 
 	@ManyToOne(optional = true)
-	@JsonBackReference
 	@RestResource(exported = false, path = "master", rel= "master")
+	@JsonBackReference
 	open var master: Master?=null
 
 	@ManyToMany

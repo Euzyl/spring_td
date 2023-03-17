@@ -14,3 +14,4 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry
             config?.exposeIdsFor(Master::class.java, Dog::class.java)
         }
     }
+

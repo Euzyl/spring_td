@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
+@RequestMapping("/spa")
 class SPAController {
+    /*
     @Autowired
     lateinit var masterRepository: MasterRepository
+     */
 
     @Autowired
     lateinit var dogRepository:DogRepository
@@ -27,34 +30,30 @@ class SPAController {
 
     @RequestMapping(path=["/",""])
     fun index() : String{
-        vue.addData("masters",masterRepository.findAll())
-        //vue.addDataRaw("newMaster", "{}")
-        vue.addDataRaw("newMaster", "[]")
+        //vue.addData("masters",masterRepository.findAll())
+        vue.addDataRaw("masters", "[]")
         vue.addData("dogs", dogRepository.findByMasterIsNull())
+        vue.addDataRaw("newMaster", "{}")
 
         //génération de javascript en kotlin dans une chaine de caracteres
-        vue.addMethod("removeMaster",
-            Http.delete("'/masters/'+master.id",
-                JsArray.remove("this.masters", "master"),
+        vue.addMethod("addMaster",
+            Http.post("/masters",
+                "master",
+                JsArray.add("this.masters","master")+
+                        "this.newMaster={}",
                 "console.log('Erreur')"),
             "master")
 
-        vue.addMethod(
-            "",
-            Http.post("/masters",
-                "masters",
-                JsArray.add("this.masters","master"),
+        vue.addMethod("removeMaster",
+            Http.delete("'/masters/'+master.id",
+                JsArray.remove("this.masters","master")+
+                        JsArray.addAll("this.dogs","master.dogs"),
                 "console.log('Erreur')"),
-            "master"
-        )
+            "master")
 
         vue.onMounted(Http.get("/masters",
-            Http.responseArrayToArray("this.masters","masters" ),
-            "console.log('Erreur')")
-        )
-
+            Http.responseArrayToArray("this.masters", "masters"),
+            "console.log('Erreur')"))
         return "/spa/index"
     }
-
-
 }
