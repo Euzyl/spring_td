@@ -1,3 +1,40 @@
 {{> main/header }}
 
+<h1>{{domain.name}}</h1>
+
+<h2>Domaine.s <div class="ui label"> {{children.size}}</div></h2>
+
+
+<div class="ui cards">
+{{#children}}
+    <div class="card">
+        <div class="content">
+            <div class="header">{{name}}</div>
+            <div class="description">
+                {{providers.size}} providers
+            </div>
+            <div class="description">
+                {{description}} providers
+            </div>
+            <div>
+                <img class="ui mini right spaced image" src="/images/ladybug.png">
+                {{getComplaintsCount}} plaintes
+                <div class="ui label">{{complaints.size}}</div>
+            </div>
+        </div>
+        {{#hasChildren}}
+            <a href="/domain/{{name}}" class="ui bottom attached button">
+                <div class="ui button">
+                    <i class="door open icon"></i>
+                    Ouvrir
+                </div>
+            </a>
+        {{/hasChildren}}
+
+    </div>
+{{/children}}
+</div>
+
+
+
 {{> main/footer }}

@@ -4,10 +4,13 @@ import edu.spring.btp.entities.Complaint
 import edu.spring.btp.entities.Domain
 import edu.spring.btp.entities.Provider
 import edu.spring.btp.entities.User
+import edu.spring.btp.repositories.DomainRepository
 import io.github.serpro69.kfaker.faker
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties
 //import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Controller
+import org.springframework.ui.ModelMap
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 
@@ -18,7 +21,7 @@ class InitController {
     lateinit var userRepository: edu.spring.btp.repositories.UserRepository
 
     @Autowired
-    lateinit var domainRepository: edu.spring.btp.repositories.DomainRepository
+    lateinit var domainRepository: DomainRepository
 
     @Autowired
     lateinit var complaintRepository: edu.spring.btp.repositories.ComplaintRepository
@@ -148,4 +151,6 @@ class InitController {
         initComplaints(count)
         return "redirect:/"
     }
+
+
 }
