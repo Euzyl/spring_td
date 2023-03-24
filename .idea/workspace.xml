@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73869f65-d1f1-4d87-b916-9537187652fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/config/WebSecurityConfig.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/controllers/InitController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/entities/Role.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/entities/User.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/repositories/RoleRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/repositories/UserRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/services/DbUserService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/forms/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dogs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/dogs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/config/AppConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/config/AppConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/controllers/MainController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/edu/spring/dogs/controllers/MainController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
