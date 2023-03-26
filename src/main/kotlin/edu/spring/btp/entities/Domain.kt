@@ -34,8 +34,11 @@ class Domain() {
 
     fun getComplaintsCount() : Int{
         var nbComplaints : Int = this.complaints.size
-        //ne compte pas les enfants
-
+        if(hasChildren()){
+            for(c in children){
+                nbComplaints += c.complaints.size
+            }
+        }
         return nbComplaints
     }
 
