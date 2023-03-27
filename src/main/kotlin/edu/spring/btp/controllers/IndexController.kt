@@ -99,7 +99,11 @@ class IndexController {
 
 
     @RequestMapping("/complaints")
-    fun complaints(){
+    fun complaints(model: ModelMap, auth: Authentication?){
+        if(auth != null) model["user"] = auth
+        model["domain"] = domainRepository.findAll()
+        model["complaints"] = complaintRepository.findAll()
+        
 
     }
 

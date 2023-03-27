@@ -1,5 +1,34 @@
 {{> main/header }}
 
+<h1 class="ui blue header">Complaints</h1>
 
+<a href="/complaints" class="header item">Nouvelle Plainte</a>
+
+<div class="ui cards">
+{{#complaints}}
+    <div class="card">
+        <div class="content">
+            <div class="header">{{title}}</div>
+            <div>Description :</div>
+            <div class="description">
+                {{description}}
+            </div>
+            <div>Providers :</div>
+            <div class="description">
+                {{provider.rs}}
+            </div>
+            <div>Domaines :</div>
+            <div class="description">
+                {{domain.name}}
+            </div>
+            <div>Utilisateurs :</div>
+            <div class="description">
+                {{user.username}}
+            </div>
+
+        </div>
+    </div>
+{{/complaints}}
+</div>
 
 {{> main/footer }}
