@@ -9,8 +9,23 @@
 <body>
 <div id="app" class="ui container">
     <div class="ui inverted menu">
-        <a href="/forms" class="header item">Se Connecter</a>
-        <a href="/forms/signup" class="header item">Créer un compte</a>
         <a href="/" class="header item">Balance ton pro...</a>
+
+        {{#user}}
+            <div class="active item">{{name}}
+                {{#isAuthenticated}}
+                    <form class="ui form" method="get" action="./logout">
+                        <button class="ui button" type="submit">Logout</button>
+                    </form>
+                {{/isAuthenticated}}
+            </div>
+        {{/user}}
+
+        {{^user}}
+            <a href="/forms" class="header item">Se Connecter</a>
+            <a href="/forms/signup" class="header item">Créer un compte</a>
+        {{/user}}
+
+
         <div class="item right floated">Version : <span class="ui inverted label">2.0.0</span></div>
     </div>

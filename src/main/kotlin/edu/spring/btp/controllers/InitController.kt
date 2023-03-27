@@ -1,5 +1,6 @@
 package edu.spring.btp.controllers
 
+import DbUserService
 import edu.spring.btp.entities.Complaint
 import edu.spring.btp.entities.Domain
 import edu.spring.btp.entities.Provider
@@ -8,6 +9,7 @@ import edu.spring.btp.repositories.DomainRepository
 import io.github.serpro69.kfaker.faker
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties
+import org.springframework.security.core.userdetails.UserDetailsService
 //import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
@@ -29,8 +31,8 @@ class InitController {
     @Autowired
     lateinit var providerRepository: edu.spring.btp.repositories.ProviderRepository
 
-//    @Autowired
-//    lateinit var dbUserService: UserDetailsService
+    @Autowired
+    lateinit var dbUserService: UserDetailsService
 
     private fun initProviders(count:Int){
         val faker = faker { }
@@ -58,6 +60,7 @@ class InitController {
             user.email = faker.internet.email()
             user.password = "password"
             user.role = "USER"
+            (dbUserService as DbUserService).encodePassword(user)
             try {
                 userRepository.save(user)
             }
